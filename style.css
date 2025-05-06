@@ -27,18 +27,6 @@ body {
     z-index: -2; /* Ensure it's behind content and overlay */
 }
 
-/* Faded Black Overlay Gradient */
-.overlay {
-    position: fixed; /* Cover the whole viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gradient from slightly transparent black at top to mostly opaque black at bottom */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
-    z-index: -1; /* Ensure it's between background and content */
-}
-
 /* Main Content Container */
 .content-container {
     position: relative; /* Sit above background/overlay */
