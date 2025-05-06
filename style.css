@@ -1,0 +1,131 @@
+/* style.css */
+
+/* Basic Reset and Body Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Or choose a specific font */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent scroll if content is too big initially */
+    position: relative; /* Needed for absolute positioning of background/overlay */
+}
+
+/* Background Image Container */
+.background-container {
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/background.jpg'); /* <-- Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    z-index: -2; /* Ensure it's behind content and overlay */
+}
+
+/* Faded Black Overlay Gradient */
+.overlay {
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient from slightly transparent black at top to mostly opaque black at bottom */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: -1; /* Ensure it's between background and content */
+}
+
+/* Main Content Container */
+.content-container {
+    position: relative; /* Sit above background/overlay */
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+    max-width: 800px; /* Limit content width */
+    box-sizing: border-box;
+}
+
+/* Logo Styles */
+.logo {
+    margin-bottom: 40px; /* Space below the logo */
+}
+
+.logo img {
+    max-width: 300px; /* Adjust logo size as needed */
+    height: auto;
+}
+
+/* Description Styles */
+.description h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.description p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Call to Action Buttons */
+.cta-buttons a,
+.cta-buttons button {
+    display: inline-block;
+    background-color: #e74c3c; /* Example button color (reddish) */
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+}
+
+.cta-buttons a:hover,
+.cta-buttons button:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 40px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2em;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e74c3c; /* Match button color on hover */
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 768px) {
+    .logo img {
+        max-width: 200px;
+    }
+    .description h1 {
+        font-size: 2em;
+    }
+    .description p {
+        font-size: 1em;
+    }
+    .cta-buttons a,
+    .cta-buttons button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .social-icons a {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+}
