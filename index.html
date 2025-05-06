@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Link to your external CSS file -->
-    <link rel="stylesheet" href="style.css"> <!-- This is the important line -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -17,7 +17,8 @@
     <!-- Background Image -->
     <div class="background-container"></div>
 
-    <!-- Faded Black Overlay -->
+    <!-- Faded Black Overlay (Ensure this has some transparency if you want the background image to show through) -->
+    <!-- Your existing CSS for .overlay needs to define background-color: rgba(...) -->
     <div class="overlay"></div>
 
     <!-- Main Content -->
@@ -25,23 +26,24 @@
 
         <!-- Logo -->
         <div class="logo">
-            <img src="images/logo.png" alt="Cavebreakers Logo"> <!-- <-- Replace with your logo image path -->
+            <img src="images/logo.png" alt="Cavebreakers Logo">
         </div>
 
         <!-- Game Description -->
         <div class="description">
-            <p>
-                Dive into the depths of the unknown! Cavebreakers is a thrilling co-op mining adventure where you and your friends explore treacherous caves, battle monstrous creatures, and uncover ancient treasures. Upgrade your gear, manage resources, and try not to get lost in the darkness!
-            </p>
+            <p>A co-op survival horror game where Stone Age scavengers must outwit terrifying mythical creatures and each other to escape a cursed wilderness, balancing desperate teamwork with treacherous sabotage.</p>
+            <p>Join our socials and wishlist on steam to stay up to date</p>
+            <p>Join our discord server to discuss the game, make suggestions, and participate in testing rounds</p>
         </div>
 
         <!-- Calls to Action -->
         <div class="cta-buttons">
-             <!-- Button for Mailing List Signup -->
-            <button id="signupButton">Sign Up to Our Mailing List</button>
+             <!-- Link for Mailing List Signup -->
+            <!-- *** ADD YOUR MAILCHIMP FORM URL HERE *** -->
+            <a href="YOUR_MAILCHIMP_FORM_URL_HERE" target="_blank" rel="noopener noreferrer">Sign Up to Our Mailing List</a>
 
             <!-- Button to Wishlist on Steam -->
-            <a href="YOUR_STEAM_STORE_URL" target="_blank" rel="noopener noreferrer">Wishlist on Steam</a> <!-- <-- Replace with your Steam Store URL -->
+            <a href="YOUR_STEAM_STORE_URL" target="_blank" rel="noopener noreferrer">Wishlist on Steam</a>
         </div>
 
         <!-- Social Icons -->
@@ -63,15 +65,12 @@
 
     </div>
 
-    <!-- Optional: Basic script for the signup button -->
-    <script>
+    <!-- Removed the script as we are now using a direct link -->
+    <!-- <script>
         document.getElementById('signupButton').addEventListener('click', function() {
-            // Replace with your desired action:
             alert('Mailing list signup form would go here!');
-            // Or redirect: window.location.href = 'YOUR_SIGNUP_PAGE_URL';
-            // Or show a modal form: YourModalFunction();
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
