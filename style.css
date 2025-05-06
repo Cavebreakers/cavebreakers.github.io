@@ -21,20 +21,36 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/background.png'); /* <-- Replace with your background image path */
+    background-image: url('images/background.png');
     background-size: cover;
     background-position: center;
     z-index: -2; /* Ensure it's behind content and overlay */
 }
+
+/* Faded Black Overlay (Make sure this rule exists and is correct) */
+.overlay {
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the 0.6 (60% opacity) as needed */
+    z-index: -1; /* Sit above the background (-2) and below the content (1) */
+    pointer-events: none; /* Optional: Allows clicks to pass through to elements below */
+}
+
 
 /* Main Content Container */
 .content-container {
     position: relative; /* Sit above background/overlay */
     z-index: 1;
     text-align: center;
-    padding: 20px;
+    padding: 30px; /* Increased padding a bit for the background */
     max-width: 800px; /* Limit content width */
     box-sizing: border-box;
+    /* --- Added Semi-Transparent Background --- */
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    border-radius: 8px; /* Optional: gives it slightly rounded corners */
 }
 
 /* Logo Styles */
@@ -48,6 +64,7 @@ body {
 }
 
 /* Description Styles */
+/* Added margin-bottom to the h1 if you decide to add one */
 .description h1 {
     font-size: 3em;
     margin-bottom: 10px;
@@ -60,8 +77,8 @@ body {
 }
 
 /* Call to Action Buttons */
-.cta-buttons a,
-.cta-buttons button {
+/* Updated selector to only target <a> tags, removed button */
+.cta-buttons a {
     display: inline-block;
     background-color: #e74c3c; /* Example button color (reddish) */
     color: white;
@@ -71,12 +88,11 @@ body {
     border-radius: 5px;
     font-size: 1.1em;
     transition: background-color 0.3s ease;
-    border: none; /* Remove default button border */
+    border: none; /* Remove default button border effects if any */
     cursor: pointer;
 }
 
-.cta-buttons a:hover,
-.cta-buttons button:hover {
+.cta-buttons a:hover {
     background-color: #c0392b; /* Darker shade on hover */
 }
 
@@ -107,8 +123,7 @@ body {
     .description p {
         font-size: 1em;
     }
-    .cta-buttons a,
-    .cta-buttons button {
+    .cta-buttons a { /* Keep this as <a> */
         padding: 10px 20px;
         font-size: 1em;
     }
