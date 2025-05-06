@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavebreakers - Official Website</title>
+
+    <!-- Link to Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css"> <!-- This is the important line -->
+
+</head>
+<body>
+
+    <!-- Background Image -->
+    <div class="background-container"></div>
+
+    <!-- Faded Black Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="content-container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/logo.png" alt="Cavebreakers Logo"> <!-- <-- Replace with your logo image path -->
+        </div>
+
+        <!-- Game Description -->
+        <div class="description">
+            <h1>Cavebreakers</h1>
+            <p>
+                Dive into the depths of the unknown! Cavebreakers is a thrilling co-op mining adventure where you and your friends explore treacherous caves, battle monstrous creatures, and uncover ancient treasures. Upgrade your gear, manage resources, and try not to get lost in the darkness!
+            </p>
+        </div>
+
+        <!-- Calls to Action -->
+        <div class="cta-buttons">
+             <!-- Button for Mailing List Signup -->
+            <button id="signupButton">Sign Up to Our Mailing List</button>
+
+            <!-- Button to Wishlist on Steam -->
+            <a href="YOUR_STEAM_STORE_URL" target="_blank" rel="noopener noreferrer">Wishlist on Steam</a> <!-- <-- Replace with your Steam Store URL -->
+        </div>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <!-- Discord Icon -->
+            <a href="YOUR_DISCORD_INVITE_URL" target="_blank" rel="noopener noreferrer" aria-label="Join us on Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <!-- Reddit Icon -->
+            <a href="YOUR_REDDIT_COMMUNITY_URL" target="_blank" rel="noopener noreferrer" aria-label="Visit our Reddit community">
+                <i class="fab fa-reddit"></i>
+            </a>
+             <!-- Steam Icon (often used to link to the game/developer page) -->
+            <a href="YOUR_STEAM_COMMUNITY_URL_OR_STORE_URL" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Steam">
+                 <i class="fab fa-steam"></i>
+            </a>
+            <!-- Add more social icons if needed -->
+        </div>
+
+    </div>
+
+    <!-- Optional: Basic script for the signup button -->
+    <script>
+        document.getElementById('signupButton').addEventListener('click', function() {
+            // Replace with your desired action:
+            alert('Mailing list signup form would go here!');
+            // Or redirect: window.location.href = 'YOUR_SIGNUP_PAGE_URL';
+            // Or show a modal form: YourModalFunction();
+        });
+    </script>
+
+</body>
+</html>
