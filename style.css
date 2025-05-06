@@ -6,12 +6,17 @@ body {
     padding: 0;
     font-family: sans-serif; /* Or choose a specific font */
     color: white;
-    min-height: 100vh;
+    /* min-height: 100vh; */ /* Removed to allow content to dictate height if needed */
+    min-height: 100%; /* Use 100% for flexbox in older browsers, 100vh is usually fine */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Prevent scroll if content is too big initially */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    /* overflow-y: auto; */ /* Allow vertical scroll if content exceeds screen height */
     position: relative; /* Needed for absolute positioning of background/overlay */
+    /* Add padding to body on mobile to prevent content touching edges */
+    padding: 0 10px; /* Add some default side padding */
+    box-sizing: border-box; /* Include padding in element's total width */
 }
 
 /* Background Image Container */
@@ -34,9 +39,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Adjust the 0.6 (60% opacity) as needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
     z-index: -1; /* Sit above the background (-2) and below the content (1) */
-    pointer-events: none; /* Optional: Allows clicks to pass through to elements below */
+    pointer-events: none; /* Optional: Allows clicks to pass through */
 }
 
 
@@ -45,12 +50,14 @@ body {
     position: relative; /* Sit above background/overlay */
     z-index: 1;
     text-align: center;
-    padding: 30px; /* Increased padding a bit for the background */
+    padding: 30px; /* Base padding for larger screens */
     max-width: 800px; /* Limit content width */
-    box-sizing: border-box;
-    /* --- Added Semi-Transparent Background --- */
+    width: 100%; /* Ensure it takes full width on smaller screens up to max-width */
+    box-sizing: border-box; /* Include padding in element's total width */
     background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
     border-radius: 8px; /* Optional: gives it slightly rounded corners */
+    /* Ensure vertical spacing from top/bottom of screen if content is shorter than viewport */
+    margin: 20px auto; /* Add margin top/bottom and auto left/right to keep it centered horizontally */
 }
 
 /* Logo Styles */
@@ -61,35 +68,47 @@ body {
 .logo img {
     max-width: 300px; /* Adjust logo size as needed */
     height: auto;
+    display: block; /* Ensure image is treated as a block for margin auto centering */
+    margin: 0 auto; /* Center the logo image itself */
 }
 
 /* Description Styles */
-/* Added margin-bottom to the h1 if you decide to add one */
 .description h1 {
     font-size: 3em;
     margin-bottom: 10px;
+    word-wrap: break-word; /* Prevent very long words from overflowing */
+    overflow-wrap: break-word; /* Modern standard */
 }
 
 .description p {
     font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 40px;
+    word-wrap: break-word; /* Prevent very long words from overflowing */
+    overflow-wrap: break-word; /* Modern standard */
 }
 
 /* Call to Action Buttons */
-/* Updated selector to only target <a> tags, removed button */
+.cta-buttons {
+    display: flex; /* Use flexbox for buttons */
+    justify-content: center; /* Center buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap onto new lines on smaller screens */
+    margin-bottom: 40px; /* Space below buttons */
+}
+
 .cta-buttons a {
-    display: inline-block;
+    display: inline-block; /* Already set, keep for consistency */
     background-color: #e74c3c; /* Example button color (reddish) */
     color: white;
     padding: 15px 30px;
-    margin: 10px;
+    margin: 10px; /* Margin around each button */
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1em;
     transition: background-color 0.3s ease;
-    border: none; /* Remove default button border effects if any */
+    border: none;
     cursor: pointer;
+    text-align: center; /* Center text within the button */
 }
 
 .cta-buttons a:hover {
@@ -98,13 +117,13 @@ body {
 
 /* Social Icons */
 .social-icons {
-    margin-top: 40px;
+    margin-top: 40px; /* Space above social icons */
 }
 
 .social-icons a {
     color: white;
     font-size: 2em;
-    margin: 0 15px;
+    margin: 0 15px; /* Side margins for icons */
     transition: color 0.3s ease;
 }
 
@@ -113,22 +132,62 @@ body {
 }
 
 /* Optional: Responsive adjustments */
+/* This media query targets screens up to 768px width */
 @media (max-width: 768px) {
-    .logo img {
-        max-width: 200px;
+    /* Body padding adjustment - Already added padding to body directly */
+    /* body {
+        padding: 0 15px;
+    } */
+
+    /* Adjust content container padding for smaller screens */
+    .content-container {
+        padding: 20px; /* Less padding on smaller screens */
+        margin: 10px auto; /* Less vertical margin on smaller screens */
     }
+
+    .logo img {
+        max-width: 200px; /* Smaller logo on smaller screens */
+        margin-bottom: 30px; /* Slightly less space below logo */
+    }
+
+    /* Font size adjustments */
     .description h1 {
-        font-size: 2em;
+        font-size: 2em; /* Smaller heading */
     }
     .description p {
-        font-size: 1em;
+        font-size: 1em; /* Smaller body text */
+        margin-bottom: 30px; /* Slightly less space below description */
     }
-    .cta-buttons a { /* Keep this as <a> */
-        padding: 10px 20px;
-        font-size: 1em;
+
+    /* Button adjustments */
+    .cta-buttons a {
+        padding: 12px 25px; /* Slightly less padding on buttons */
+        font-size: 1em; /* Smaller button font */
+        margin: 8px; /* Slightly less margin around buttons */
+        /* Optional: Uncomment below to make buttons stack vertically and take full width on narrow screens */
+        /* display: block; */
+        /* width: calc(100% - 16px); */ /* Full width minus left/right margin */
+    }
+
+    /* Social icon adjustments */
+    .social-icons {
+        margin-top: 30px; /* Slightly less space above icons */
+    }
+    .social-icons a {
+        font-size: 1.8em; /* Slightly smaller icons */
+        margin: 0 10px; /* Less side margin between icons */
+    }
+}
+
+/* Optional: Add another breakpoint for very small screens if needed */
+/* @media (max-width: 480px) {
+    .cta-buttons a {
+         display: block;
+         width: calc(100% - 16px);
+         margin: 5px auto; // Center block buttons with margin auto
     }
     .social-icons a {
         font-size: 1.5em;
-        margin: 0 10px;
+        margin: 0 8px;
     }
-}
+} */
